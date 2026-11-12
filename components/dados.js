@@ -17,18 +17,31 @@ export const  tarefasIniciais = [
   }
   ]
 
-  export default function tarefasItem({tarefasIniciais}){
-    return(
-        <p className="lista" style={{textAlign: "center"}} >
-            <ol>
+export const tarefasIniciais = [
 
-            <li></li>
-            <li></li>
-            <li></li>
-            </ol>
+{ id: 1, descricao: "Instalar o Node", concluida: true },
 
-            <label>Cheque aqui:</label>
-            <input typeof="checkbox"></input>
-        </p>
-    );
+{ id: 2, descricao: "Criar o projeto", concluida: false },
+
+];
+export default function TarefaItem({ tarefa }) {
+
+return (
+
+<li className={tarefa.concluida
+
+? "tarefa concluida" : "tarefa"}>
+
+<label>
+
+<input type="checkbox" checked={tarefa.concluida} />
+
+<span>{tarefa.descricao}</span>
+
+</label>
+
+</li>
+
+);
+
 }
