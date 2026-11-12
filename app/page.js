@@ -1,7 +1,10 @@
+/* Puxa do components*/
+
 import Cabecalho from "@/components/Cabecalho";
+import ListaDeTarefas from "@/components/ListaDeTarefas";
 
 export default function Home() {
-  const name = "aaa"
+  const name = "usuario logado"
   return (
     <>
       <header>
@@ -9,11 +12,12 @@ export default function Home() {
       </header>
       <main
       className="conteudo">
-      <h1>Olá {name}!</h1>
+      <h1>Informe a tarefa que deseja adicionar: {name}!</h1>
 
-      <input type="text"/>
-      <p>{2 + 3} tarefas</p>
+      
+      
 
+      <ListaDeTarefas />
       </main>
 
       <footer></footer>
@@ -21,5 +25,6 @@ export default function Home() {
     </>
   );
 }
-
+/*<p>{ naoconcluidas } tarefas pendentes</p>*/
+/*npm i */
 

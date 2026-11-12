@@ -1,4 +1,5 @@
 export default function Cabecalho({titulo, subtitulo}){
+                                    /* props*/
     return(
         <header className="cabecalho" style={{textAlign: "center"}} >
             <h1>{titulo}</h1>

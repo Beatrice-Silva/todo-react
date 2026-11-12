@@ -1,3 +1,5 @@
+/* App com menos html possivel pois estara no componentes e tratado
+como peçinhas e lego para montar depois*/ 
 export const  tarefasIniciais = [
     {
     id : 1,
@@ -16,32 +18,3 @@ export const  tarefasIniciais = [
     concluida : false,
   }
   ]
-
-export const tarefasIniciais = [
-
-{ id: 1, descricao: "Instalar o Node", concluida: true },
-
-{ id: 2, descricao: "Criar o projeto", concluida: false },
-
-];
-export default function TarefaItem({ tarefa }) {
-
-return (
-
-<li className={tarefa.concluida
-
-? "tarefa concluida" : "tarefa"}>
-
-<label>
-
-<input type="checkbox" checked={tarefa.concluida} />
-
-<span>{tarefa.descricao}</span>
-
-</label>
-
-</li>
-
-);
-
-}
