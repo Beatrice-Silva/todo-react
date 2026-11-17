@@ -10,7 +10,7 @@ export default function ListaDeTarefas() {
 
     
     const [tarefas, setTarefas] = useState(tarefasIniciais) 
-    
+    const [ filtro, setFiltro] = useState("todas")
     
     const adicionar = (descricao) =>{
         const nova = {id: Date.now(), descricao: descricao, concluida: false}
@@ -19,7 +19,7 @@ export default function ListaDeTarefas() {
         
 
     }
-}
+
 
     const concluir = (id) => {
         setTarefas(
@@ -29,28 +29,108 @@ export default function ListaDeTarefas() {
             : tarefa
             )
         )
+    }
     
+    const excluir = (id) => {
+        setTarefas(
+            tarefas((tarefa) => tarefa.id != id )
+        )
+    }
+
+    const totalConcluidas =
+     tarefas.filter((tarefa) => 
+    
+        tarefa.concluida).length
+
+    const limparConc = () => { 
+    setTarefas.filter((tarefa) => !tarefa.concluida
+    )}        
+
+    const tarefasFilt = tarefas.filter((tarefa)  => { 
+    if(filtro === "pendentes") return !tarefa.concluida 
+    if(filtro === "concluidas") return tarefa.concluida 
+    return true
+
+    })
+
+
+    const FILTROS =[
+        {valor:"todas", texto:"Todas"},
+        {valor:"pendentes", texto:"Pendentes"},
+        {valor:"concluidas", texto:"Concluidas"}
+    ]
+
+
+
 
     return (
         
         <section>
 
         <FormTarefa aoAdicionar={adicionar} />
-        <ul>
-        {tarefas.map((tarefa) => (
-        <TarefaItem key={tarefa.id} tarefa={tarefa} aoConcluir={concluir}/>
-        ))}
+        
+        <div className="resumo">
 
-        </ul>
+            <p>
+                {totalConcluidas} de {tarefas.length} concluídas
+            </p>
+
+           {tarefasFilt.length === 0 ? (<p className="vazio">Nenhuma tarefa aqui.</p>
+
+            ): (
+
+                <ul>
+
+                {tarefasFilt.map((tarefa) => (
+                <TarefaItem 
+                key={tarefa.id} 
+                tarefa={tarefa} 
+                aoConcluir={concluir} 
+                aoExcluir={excluir}/>
+                ))}
+        
+                </ul>
+            )
+           } 
+
+
+
+            <div className="filtro">
+                {FILTROS.map((item) =>(
+
+                <button
+                key={item.valor}
+                type="button"
+                className={
+                    filtro === item.valor ? "botao-secundario ativo"
+                    : "botao secundario"
+                }
+                onClick={() => setFiltro(item.valor)}
+                
+                >{item.texto}</button>
+
+
+
+                ))}
+
+
+         
+            </div>
+
+            
+        </div>
+                
+                <div className="resumo">
+                    <button type="button" className="botao-secundario"
+                    onClick={limparConc}
+                    disabled={totalConcluidas === 0}
+                    >
+                        Limpar Concluidas</button>
+                </div>
+                
         </section>
     );
 
-    const excluir = (id) =>{
-        setTarefas(
-        tarefas.filter((tarefa) => tarefa.id !== id
-        
-        )
-        )
-    }
 
-    }    
+ }
+     

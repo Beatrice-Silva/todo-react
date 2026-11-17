@@ -10,14 +10,15 @@ export default function FormTarefa({ aoAdicionar }){
         event.preventDefault()
 
         if(texto.trim()===""){
-        setErro("Erro")            
+        setErro("Digite uma tarefa!")           
+        return
+        }
 
-        }return
         aoAdicionar(texto.trim())
         setTexto("")
         setErro("")
     }
-}
+
 
 return(
     <form className="formulario" onSubmit={enviar}>
@@ -28,3 +29,5 @@ return(
     </form>
     
 )
+
+}

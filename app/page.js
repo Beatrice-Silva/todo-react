@@ -14,9 +14,6 @@ export default function Home() {
       className="conteudo">
       <h1>Informe a tarefa que deseja adicionar: {name}!</h1>
 
-      
-      
-
       <ListaDeTarefas />
       </main>
 
@@ -26,5 +23,9 @@ export default function Home() {
   );
 }
 /*<p>{ naoconcluidas } tarefas pendentes</p>*/
-/*npm i */
+/*npm i 
+
+
+
+*/
 
