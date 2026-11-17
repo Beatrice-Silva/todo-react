@@ -25,7 +25,7 @@ return(
         <input value ={texto} 
         onChange={(event) => setTexto(event.target.value)} />
         {erro !== "" && <p className="erro">{erro}</p>}
-        <button type="submit">adicionar</button>
+        <button type="submit">Adicionar</button>
     </form>
     
 )

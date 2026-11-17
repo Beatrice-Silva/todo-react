@@ -32,9 +32,7 @@ export default function ListaDeTarefas() {
     }
     
     const excluir = (id) => {
-        setTarefas(
-            tarefas((tarefa) => tarefa.id != id )
-        )
+        setTarefas(tarefas.filter((tarefa) => tarefa.id !== id ))
     }
 
     const totalConcluidas =
@@ -43,8 +41,8 @@ export default function ListaDeTarefas() {
         tarefa.concluida).length
 
     const limparConc = () => { 
-    setTarefas.filter((tarefa) => !tarefa.concluida
-    )}        
+    setTarefas(tarefas.filter((tarefa) => !tarefa.concluida))
+}        
 
     const tarefasFilt = tarefas.filter((tarefa)  => { 
     if(filtro === "pendentes") return !tarefa.concluida 
@@ -72,13 +70,31 @@ export default function ListaDeTarefas() {
         <div className="resumo">
 
             <p>
-                {totalConcluidas} de {tarefas.length} concluídas
+                {totalConcluidas} de
+                 {tarefas.length} concluídas
             </p>
+            <div className="filtros">
+            {FILTROS.map((item) =>(
+                <button
+                key={item.valor}
+                type="button"
+                className={
+                    filtro === item.valor 
+                    ? "botao-secundario ativo"
+                    : "botao secundario"
+                }
+                onClick={() => setFiltro(item.valor)}
+                
+                >{item.texto}
+                </button>
+                ))}
+                </div>
+                </div>
 
-           {tarefasFilt.length === 0 ? (<p className="vazio">Nenhuma tarefa aqui.</p>
 
+           {tarefasFilt.length === 0 ? 
+           (<p className="vazio">Nenhuma tarefa aqui.</p>
             ): (
-
                 <ul>
 
                 {tarefasFilt.map((tarefa) => (
@@ -88,46 +104,18 @@ export default function ListaDeTarefas() {
                 aoConcluir={concluir} 
                 aoExcluir={excluir}/>
                 ))}
-        
                 </ul>
-            )
-           } 
-
-
-
-            <div className="filtro">
-                {FILTROS.map((item) =>(
-
-                <button
-                key={item.valor}
-                type="button"
-                className={
-                    filtro === item.valor ? "botao-secundario ativo"
-                    : "botao secundario"
-                }
-                onClick={() => setFiltro(item.valor)}
-                
-                >{item.texto}</button>
-
-
-
-                ))}
-
-
-         
-            </div>
-
-            
-        </div>
-                
+            )} 
                 <div className="resumo">
-                    <button type="button" className="botao-secundario"
+                    <button type="button" 
+                    className="botao-secundario"
                     onClick={limparConc}
                     disabled={totalConcluidas === 0}
                     >
-                        Limpar Concluidas</button>
+                        Limpar Concluidas
+                        </button>
                 </div>
-                
+
         </section>
     );
 
