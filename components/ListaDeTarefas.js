@@ -4,7 +4,7 @@ import { useState} from "react"
 
 import { tarefasIniciais } from "./dados"
 import TarefaItem from "./TarefaItem"
-import FormTarefa from "./Form"
+import FormTarefa from "./FormDaTarefa"
 
 export default function ListaDeTarefas() {
 
@@ -24,22 +24,33 @@ export default function ListaDeTarefas() {
     const concluir = (id) => {
         setTarefas(
             tarefas.map((tarefa) =>
-            tarefa.id === id ? {...tarefa, concluida : !tarefa.concluida}
+            tarefa.id === id ? 
+            {...tarefa, concluida : !tarefa.concluida}
             : tarefa
             )
         )
-    }
+    
 
     return (
         
         <section>
+
         <FormTarefa aoAdicionar={adicionar} />
-        <ul className="lista">
-        {tarefas.map((tarefa) =>(
+        <ul>
+        {tarefas.map((tarefa) => (
         <TarefaItem key={tarefa.id} tarefa={tarefa} aoConcluir={concluir}/>
         ))}
 
         </ul>
         </section>
     );
-    
+
+    const excluir = (id) =>{
+        setTarefas(
+        tarefas.filter((tarefa) => tarefa.id !== id
+        
+        )
+        )
+    }
+
+    }    
