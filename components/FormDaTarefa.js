@@ -20,11 +20,24 @@ export default function FormTarefa({ aoAdicionar }){
     }
 
 
+
 return(
+
+    
+
     <form className="formulario" onSubmit={enviar}>
+
         <input value ={texto} 
         onChange={(event) => setTexto(event.target.value)} />
         {erro !== "" && <p className="erro">{erro}</p>}
+
+        
+        
+        <select name="select">
+            <option value="alta">Alta</option>
+            <option value="media">Média</option>
+            <option value="baixa">Baixa</option>
+        </select>
         <button type="submit">Adicionar</button>
     </form>
     
