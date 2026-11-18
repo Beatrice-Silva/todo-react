@@ -6,18 +6,32 @@ import { tarefasIniciais } from "./dados"
 import TarefaItem from "./TarefaItem"
 import FormTarefa from "./FormDaTarefa"
 
+
 export default function ListaDeTarefas() {
 
-    
+     
     const [tarefas, setTarefas] = useState(tarefasIniciais) 
     const [ filtro, setFiltro] = useState("todas")
     
-    const adicionar = (descricao) =>{
-        const nova = {id: Date.now(), descricao: descricao, concluida: false}
+    const adicionar = (descricao, prioridade) =>{
+        const nova = {id: Date.now(), 
+            descricao: descricao, 
+            concluida: false, 
+            prioridade : prioridade}
 
         setTarefas([...tarefas, nova])
         
 
+    }
+
+    const editar = (id, descricao) => {
+        setTarefas(
+            tarefas.map((tarefa) => 
+            tarefa.id === id ? 
+            {...tarefa, descricao : descricao}
+            : tarefa
+        )
+        )
     }
 
 
@@ -102,7 +116,8 @@ export default function ListaDeTarefas() {
                 key={tarefa.id} 
                 tarefa={tarefa} 
                 aoConcluir={concluir} 
-                aoExcluir={excluir}/>
+                aoExcluir={excluir}
+                aoEditar={editar}/>
                 ))}
                 </ul>
             )} 

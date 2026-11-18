@@ -5,6 +5,7 @@ export const  tarefasIniciais = [
     id : 1,
     descricao : "desc1",
     concluida : true,
+    
   },{id : 2,
     descricao : "desc2",
     concluida : false,
