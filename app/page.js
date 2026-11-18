@@ -1,6 +1,7 @@
 /* Puxa do components*/
 
-import Cabecalho from "@/components/Cabecalho";
+import Cabecalho from "@/dados/tarefas.js";
+import Cabecalho from "@/components/Cabecalho/Cabecalho";
 import ListaDeTarefas from "@/components/ListaDeTarefas";
 
 export default function Home() {
@@ -18,7 +19,5 @@ export default function Home() {
     </>
   );
 }
-/*<p>{ naoconcluidas } tarefas pendentes</p>*/
-/*npm i 
-*/
+
 
