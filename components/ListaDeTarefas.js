@@ -2,7 +2,7 @@
 
 import { useState} from "react"
 
-import { tarefasIniciais } from "./dados"
+import { tarefasIniciais } from "./dados/tarefas.js"
 import TarefaItem from "./TarefaItem"
 import FormTarefa from "./FormDaTarefa"
 
