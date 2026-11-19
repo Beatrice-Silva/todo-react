@@ -1,7 +1,8 @@
 
 "use client"
-//import { text } from "express";
+
 import { useState } from "react";
+import FormTarefa from "./dados/tarefa.js"
 
 const prioridades = { 
     alta : "Alta",
@@ -55,12 +56,22 @@ export default function TarefaItem({tarefa, aoConcluir, aoExcluir,aoEditar}) {
 
            <span>{tarefa.descricao}</span>
         </label>)}
-    
+
+
+
+
+        
+            
+
+
     
  
 
     {tarefa.prioridade && (
-        <span className={"etiqueta" + tarefa.prioridade} >{PRIORIDADES[tarefa.prioridade]}</span>
+        <span className={ `${styles.etiqueta} ${styles[tarefa.prioridade]}`} >
+        /* {PRIORIDADES[tarefa.prioridade]} */
+        </span>
+         
     )}
     
         <button type="button"
@@ -72,3 +83,19 @@ export default function TarefaItem({tarefa, aoConcluir, aoExcluir,aoEditar}) {
     </li>
     );
     }
+
+    export function Painel({titulo, children}) {
+
+        <header>
+        <section className="coluna">
+        <h2>   
+            {titulo}
+        </h2>
+        {children}
+        </section>
+        </header>
+
+    }
+
+    
+    

@@ -6,6 +6,10 @@ export const COLUNAS = [
     {
         status : "feito",
         titulo : "Feito"
+    },
+    {
+        status : "feito",
+        titulo : "Feito"
     }
 ]
 

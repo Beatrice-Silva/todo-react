@@ -1,6 +1,6 @@
 
-"use client"
-//import { text } from "express";
+/*"use client"
+
 import { useState } from "react";
 
 const prioridades = { 
@@ -71,4 +71,4 @@ export default function TarefaItem({tarefa, aoConcluir, aoExcluir,aoEditar}) {
 
     </li>
     );
-    }
+    }*/
