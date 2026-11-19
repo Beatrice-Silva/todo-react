@@ -2,7 +2,7 @@
 
 import tarefas from "@/dados/tarefas.js";
 import Cabecalho from "@/components/Cabecalho/Cabecalho";
-import ListaDeTarefas from "@/components/ListaDeTarefas";
+import ListaDeTarefas from "@/Quadro/quadro.js";
 import { Painel } from "@/components/Cartao/cartao";
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
   return (
 
     <>
-        <Cabecalho titulo="To Do List"subtitulo="Aula 23"/>
+        <Cabecalho titulo="Quadro de Tarefas"subtitulo="Aula 23"/>
       
       <main>
      
