@@ -1,5 +1,5 @@
 
-/*"use client"
+"use client"
 
 import { useState } from "react";
 
@@ -71,4 +71,4 @@ export default function TarefaItem({tarefa, aoConcluir, aoExcluir,aoEditar}) {
 
     </li>
     );
-    }*/
+    }

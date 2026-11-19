@@ -2,7 +2,7 @@
 
 import { useState} from "react"
 
-import { tarefasIniciais } from "./dados/tarefas.js"
+import { tarefasIniciais } from "@/dados/tarefas.js"
 import TarefaItem from "./TarefaItem"
 import FormTarefa from "./FormDaTarefa"
 
@@ -76,7 +76,10 @@ export default function ListaDeTarefas() {
 
 
     return (
-        
+
+
+
+        /*
         <section>
 
         <FormTarefa aoAdicionar={adicionar} />
@@ -132,7 +135,12 @@ export default function ListaDeTarefas() {
                 </div>
 
         </section>
-    );
+    */
+    
+    <section>
+        
+    </section>
+    )
 
 
  }
