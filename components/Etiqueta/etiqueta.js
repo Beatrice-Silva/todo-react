@@ -12,4 +12,6 @@ export default function Etiqueta({prioridade}) {
 <span className={
 `${styles.etiqueta} ${styles[prioridade]}`
 }>[PRIORIDADES{prioridade}]</span>
+
+
 }
